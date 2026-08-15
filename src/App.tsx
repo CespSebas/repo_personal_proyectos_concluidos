@@ -1,115 +1,73 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+interface Project {
+  name: string
+  description: string
+  stack: string[]
+  repo: string
+}
 
+const projects: Project[] = [
+  {
+    name: 'Carnices',
+    description:
+      'Sistema full-stack de gestión para carnicería: catálogo de productos, pedidos y reseñas.',
+    stack: ['Angular', 'Node.js/Express', 'Prisma', 'MySQL'],
+    repo: 'https://github.com/CespSebas/carnices-showcase',
+  },
+  {
+    name: 'Panel de Facturas CARNICES',
+    description:
+      'Automatización del ciclo completo de facturación electrónica de Hacienda (Costa Rica): XML → PDF → envío por correo.',
+    stack: ['Python', 'watchdog', 'IMAP/SMTP', 'PyInstaller'],
+    repo: 'https://github.com/CespSebas/panel-facturas-carnices',
+  },
+  {
+    name: 'Comercializadora Caces de Oro',
+    description:
+      'Sitio web de catálogo para un negocio de aderezos y productos artesanales, con marca asociada.',
+    stack: ['HTML5', 'CSS3', 'JavaScript'],
+    repo: 'https://github.com/CespSebas/comercializadora-caces-de-oro-showcase',
+  },
+]
+
+function App() {
   return (
     <>
       <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
         <div>
-          <h1>Get started</h1>
+          <h1>Sebastián Céspedes</h1>
           <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
+            Full-Stack Developer · Ingeniero de Software · Backend &amp; Automatización
           </p>
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
+        <div id="hero-links">
+          <a href="mailto:sc163876@gmail.com">Email</a>
+          <a href="https://github.com/CespSebas" target="_blank" rel="noreferrer">
+            GitHub
+          </a>
+        </div>
       </section>
 
       <div className="ticks"></div>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
+      <section id="projects">
+        <h2>Proyectos destacados</h2>
+        <div className="project-grid">
+          {projects.map((project) => (
+            <article className="project-card" key={project.name}>
+              <h3>{project.name}</h3>
+              <p>{project.description}</p>
+              <ul className="stack-tags">
+                {project.stack.map((tech) => (
+                  <li key={tech}>{tech}</li>
+                ))}
+              </ul>
+              <a href={project.repo} target="_blank" rel="noreferrer">
+                Ver repositorio →
               </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
+            </article>
+          ))}
         </div>
       </section>
 
