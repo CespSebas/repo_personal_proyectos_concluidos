@@ -1,32 +1,32 @@
-# React + TypeScript + Vite
+# Proyectos — Sebastián Céspedes
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Índice de mis proyectos. Los que tienen código público enlazan a su repositorio; los privados tienen una ficha breve con stack y funcionalidad, sin código ni datos.
 
-Currently, two official plugins are available:
+## Código público
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+| Proyecto | Descripción | Stack | Ficha |
+|---|---|---|---|
+| [Carnices](https://github.com/CespSebas/carnices-showcase) | Sistema full-stack de gestión para emprendimiento | Angular · Node.js · Prisma · MySQL | [ver](proyectos/carnices.md) |
+| [Panel de Facturas](https://github.com/CespSebas/panel-facturas-carnices) | Automatización de la facturación electrónica de Hacienda | Python · watchdog · IMAP/SMTP | [ver](proyectos/panel-facturas-carnices.md) |
+| [Comercializadora Caces de Oro](https://github.com/CespSebas/comercializadora-caces-de-oro-showcase) | Sitio web de catálogo para una empresa | HTML · CSS · JavaScript | [ver](proyectos/comercializadora-caces-de-oro.md) |
 
-## React Compiler
+## Código privado (solo ficha)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Proyecto | Descripción | Stack | Ficha |
+|---|---|---|---|
+| App de Operaciones — Unicomer | Práctica profesional (en curso): migración de una app interna a arquitectura web | Angular · Java 21 · Spring Boot · PostgreSQL | [ver](proyectos/app-operaciones-unicomer.md) |
+| Análisis de datos retail | Prueba técnica: estacionalidad, cohortes y experimento A/B | Python · DuckDB · SciPy | [ver](proyectos/analisis-datos-retail.md) |
 
-## Expanding the Oxlint configuration
+## Estructura del repositorio
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```
+proyectos/   una ficha por proyecto (mismo formato para todos)
+src/         sitio web del portafolio (Vite + React + TypeScript)
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Para ver el sitio localmente:
+
+```bash
+npm install
+npm run dev
+```
