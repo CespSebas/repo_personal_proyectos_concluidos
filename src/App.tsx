@@ -5,9 +5,20 @@ interface Project {
   description: string
   stack: string[]
   repo: string
+  linkLabel?: string
+  badge?: string
 }
 
 const projects: Project[] = [
+  {
+    name: 'App de Operaciones — Unicomer',
+    description:
+      'Práctica profesional: migración de una app interna de Power Apps a una arquitectura web con evaluaciones operativas, roles y auditoría.',
+    stack: ['Angular', 'Java 21', 'Spring Boot', 'PostgreSQL', 'Flyway'],
+    repo: 'https://github.com/CespSebas/repo_personal_proyectos_concluidos/blob/main/proyectos/app-operaciones-unicomer.md',
+    linkLabel: 'Ver ficha del proyecto →',
+    badge: 'Código privado · En curso',
+  },
   {
     name: 'Carnices',
     description:
@@ -56,6 +67,7 @@ function App() {
         <div className="project-grid">
           {projects.map((project) => (
             <article className="project-card" key={project.name}>
+              {project.badge && <span className="badge">{project.badge}</span>}
               <h3>{project.name}</h3>
               <p>{project.description}</p>
               <ul className="stack-tags">
@@ -64,7 +76,7 @@ function App() {
                 ))}
               </ul>
               <a href={project.repo} target="_blank" rel="noreferrer">
-                Ver repositorio →
+                {project.linkLabel ?? 'Ver repositorio →'}
               </a>
             </article>
           ))}
