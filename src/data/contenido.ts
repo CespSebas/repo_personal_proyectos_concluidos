@@ -12,7 +12,7 @@ export const perfil = {
   ubicacion: 'Grecia, Costa Rica',
   email: 'sc163876@gmail.com',
   github: 'https://github.com/CespSebas',
-  linkedin: 'https://www.linkedin.com/in/sebasti%C3%A1n-c%C3%A9spedes',
+  linkedin: 'https://www.linkedin.com/in/sebasti%C3%A1n-andr%C3%A9s-c%C3%A9spedes-quesada-52971a2ab/',
 }
 
 export interface Metrica {
